@@ -12,10 +12,6 @@ type Query {
   Get a specific order by id. Meant to be used for a detailed view of an order
   """
   order(id: ID!): Order 
-
-  Get a specific order by id. Meant to be used for a detailed view of an order
-  """
-  order(id: ID!): Order @authenticated
 }
 
 """
@@ -53,12 +49,3 @@ type ProductVariant @key(fields: "id", resolvable: false) {
   id: ID!
 }
 
-extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.8", import:
-    [
-      "@key",
-      "@tag",
-      "@shareable",
-      "@authenticated"
-    ]
-  )
