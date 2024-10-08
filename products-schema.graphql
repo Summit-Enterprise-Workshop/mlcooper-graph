@@ -1,11 +1,5 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.8", import:
-    [
-      "@key",
-      "@tag",
-      "@shareable",
-      "@authenticated"
-    ])
+  @link(url: "https://specs.apollo.dev/federation/v2.8", import: ["@key"])
 
 type Query {
   """
@@ -37,11 +31,6 @@ type Query {
   Get a specific variant by id. Useful for the product details page or checkout page
   """
   productVariant(id: ID!): ProductVariant
-
-  """
-  Get a specific order by id. Meant to be used for a detailed view of an order
-  """
-  order(id: ID!): Order @authenticated
 }
 
 """
@@ -160,3 +149,13 @@ type User @key(fields: "id") {
 #type Subscription {
 #ADD SUBSCRIPTION FIELDS AND RETURN TYPES HERE
 #}
+
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.8", import:
+    [
+      "@key",
+      "@tag",
+      "@shareable",
+      "@authenticated"
+    ]
+  )
